@@ -9,23 +9,27 @@
       <th>Email </th>
       <th>Telefone </th>
       <th>Twitter</th>
+      <th>User ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @friends.each do |friend| %>
+      <% if friend.user == current_user %>
       <tr>
         <td><%= friend.first_name %></td>
         <td><%= friend.last_name %></td>
         <td><%= friend.email %></td>
         <td><%= friend.phone %></td>
         <td><%= friend.twitter %></td>
+        <td><%= friend.user_id%></td>
         <td><%= link_to 'Mostrar', friend, class:"btn btn-light"%></td>
         <td><%= link_to 'Editar', edit_friend_path(friend), class:"btn btn-light" %></td>
         <td><%= link_to 'Apagar', friend, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light"%></td>
       </tr>
     <% end %>
+  <% end %>
   </tbody>
 </table>
 
