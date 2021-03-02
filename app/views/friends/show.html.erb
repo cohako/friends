@@ -7,8 +7,9 @@
   <p><%= @friend.twitter %></p>
   <hr class="my-4">
   <p></p>
-  <%= link_to 'Editar', edit_friend_path(@friend), class:"btn btn-dark" %>   
-  <%= link_to 'Voltar', friends_path, class:"btn btn-dark" %>
+  <%= link_to 'Editar', edit_friend_path(@friend), class:"btn btn-sm btn-dark" %>   
+  <%= link_to 'Voltar', friends_path, class:"btn btn-sm btn-dark" %>
+  <%= link_to 'Apagar', @friend, method: :delete, data: { confirm: 'Tem certeza?' }, class:"btn btn-sm btn-outline-danger"%>
 </div>
 
 
