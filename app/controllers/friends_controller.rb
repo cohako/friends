@@ -8,10 +8,10 @@ class FriendsController < ApplicationController
   end
 
   def search
-    @friends = Friend.where("first_name LIKE ?", "%" + params[:q] + "%")
+    @friends = Friend.where("first_name || last_name LIKE ?", "%" + params[:q] + "%")
 
     if @friends
-      
+
     end
 
   end
