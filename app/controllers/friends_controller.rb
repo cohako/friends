@@ -7,6 +7,15 @@ class FriendsController < ApplicationController
     @friends = Friend.all
   end
 
+  def search
+    @friends = Friend.where("first_name LIKE ?", "%" + params[:q] + "%")
+
+    if @friends
+      
+    end
+
+  end
+
   # GET /friends/1 or /friends/1.json
   def show
   end
@@ -72,6 +81,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter, :user_id)
+      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter, :user_id, :search)
     end
 end

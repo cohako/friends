@@ -1,31 +1,7 @@
 <% if user_signed_in? %>
 <h1 align='center'>Lista de amigos</h1>
 
-<table class="table table-dark table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Nome </th>
-      <th>Email </th>
-      <th>Telefone </th>
-      <th>Twitter</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @friends.each do |friend| %>
-      <% if friend.user == current_user %>
-      <tr>
-        <td><%= link_to friend.first_name + ' ' + friend.last_name, friend, class:"btn btn-sm btn-light"%>
-        <td><%= friend.email %></td>
-        <td><%= friend.phone %></td>
-        <td><%= friend.twitter %></td>
-        <td><%= link_to 'Apagar', friend, method: :delete, data: { confirm: 'Tem certeza?' }, class:"btn btn-sm btn-outline-danger"%></td>
-      </tr>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
+<%= render  'table', friend: @friend %>
 
 <br>
 
